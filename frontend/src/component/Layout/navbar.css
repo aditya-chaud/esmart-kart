@@ -1,0 +1,43 @@
+
+.DesktopNav_container{
+    /* background-color: #8f9aab; */
+    background-color:none;
+    display: flex;     
+    flex-direction: row;
+    justify-content: space-between;
+   padding:20px 20px;
+  }
+
+
+.DesktopNavLeft_container{
+
+ 
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+
+}
+a{
+    padding:10px;
+    text-decoration: none;
+    color:black;
+}
+
+.logo{
+    width: 150px;
+}
+
+.DesktopNavRight_container {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    
+    
+}
+
+/* .DesktopNav_container > a{
+    display:flex;
+    margin-right: 3em;
+    justify-items: flex-start;
+} */

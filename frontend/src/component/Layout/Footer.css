@@ -1,0 +1,32 @@
+.Footer{
+    display: flex;     
+    flex-direction: row;
+    justify-content: space-between;
+    padding:10px 80px 10px 80px;
+    line-height: 10px;
+
+}
+.footer2n3{
+    display:flex;
+    justify-content: right;
+    gap:50px;
+    
+}
+.footer1st{
+    display: block;
+    justify-content: left;
+
+}
+
+.Footer2nd{
+    display:block;
+}
+
+.Footer3rd{
+    display:block;
+}
+
+.Footer4th{
+    display: block;
+    line-height: 10px;
+}
