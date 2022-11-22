@@ -8,6 +8,8 @@ import PersonIcon from "@mui/icons-material/Person";
 
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 
+import HomeIcon from "@mui/icons-material/Home";
+
 import ListAltIcon from "@mui/icons-material/ListAlt";
 
 // import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -15,6 +17,7 @@ import ListAltIcon from "@mui/icons-material/ListAlt";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../../actions/userAction";
 import { useDispatch, useSelector } from "react-redux";
+import Home from "@mui/icons-material/Home";
 
 const UserOptions = ({ user }) => {
   // const { cartItems } = useSelector((state) => state.cart);
@@ -27,6 +30,7 @@ const UserOptions = ({ user }) => {
     { icon: <ListAltIcon />, name: "Orders", func: orders },
     { icon: <PersonIcon />, name: "Profile", func: account },
     { icon: <ExitToAppIcon />, name: "Logout", func: logoutUser },
+    { icon: <Home />, name: "Home", func: home },
   ];
 
   if (user.role === "admin") {
@@ -53,6 +57,9 @@ const UserOptions = ({ user }) => {
   function logoutUser() {
     dispatch(logout());
     alert("Logout Successfully");
+  }
+  function home() {
+    navigate("/");
   }
 
   return (

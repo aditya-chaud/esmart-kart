@@ -36,7 +36,8 @@ const LoginSignUp = () => {
   const loginSubmit = (e) => {
     e.preventDefault();
     dispatch(login(loginEmail, loginPassword));
-    console.log("Form Submitted");
+    // alert("logged in successfully");
+    // console.log("Form Submitted");
   };
 
   const registerSubmit = (e) => {

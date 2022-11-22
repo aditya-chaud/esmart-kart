@@ -7,15 +7,12 @@ import MetaData from "../Layout/MetaData";
 import { clearErrors, getProduct } from "../../actions/productAction";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../Layout/Loader";
-import { useProducts } from "../../hooks/useProducts";
 
 const Home = () => {
   const dispatch = useDispatch();
   const { loading, error, products, productsCount } = useSelector(
     (state) => state.products
   );
-
-  // const { fetchProducts } = useProducts();
 
   useEffect(() => {
     if (error) {

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../../Assets/logo.jpg";
 import "./navbar.css";
 import SearchIcon from "@mui/icons-material/Search";
@@ -11,6 +11,7 @@ import UserOptions from "./UserOptions";
 
 const Navbar = () => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
+  const { cartItems } = useSelector((state) => state.cart);
   return (
     <>
       <div className="DesktopNav_container">
@@ -25,9 +26,7 @@ const Navbar = () => {
           >
             <a className="link">Home</a>
           </Link>
-          <Link to="/About" style={{ textDecoration: "none", color: "black" }}>
-            <a className="link">About</a>
-          </Link>
+
           <Link
             to="/Products"
             style={{ textDecoration: "none", color: "black" }}
@@ -55,14 +54,12 @@ const Navbar = () => {
               <SearchIcon />
             </a>
           </Link>
-          {/* <Link to="/Favourites">
-            <a className="fav">
-              <FavoriteBorderIcon />
-            </a>
-          </Link> */}
+
           <Link to="/Cart">
             <a className="Cart">
-              <ShoppingCartIcon />
+              <ShoppingCartIcon
+                style={{ color: cartItems.length > 0 ? "green" : "unset" }}
+              />
             </a>
           </Link>
           <Link to="/Login">

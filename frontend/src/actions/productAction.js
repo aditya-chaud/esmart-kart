@@ -15,7 +15,7 @@ export const getProduct =
   async (dispatch) => {
     try {
       dispatch({ type: ALL_PRODUCT_REQUEST });
-      const link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}`;
+      let link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}`;
 
       if (category) {
         link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}`;

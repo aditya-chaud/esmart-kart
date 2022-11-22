@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
@@ -10,9 +10,11 @@ import ReactStars from "react-rating-stars-component";
 import ReviewCard from "./ReviewCard";
 import Loader from "../Layout/Loader";
 import { Paper } from "@mui/material";
+import { addItemsToCart } from "../../actions/cartAction";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
+
   const { id } = useParams();
 
   const { product, loading, error } = useSelector(
@@ -35,6 +37,25 @@ const ProductDetails = () => {
     size: window.innerWidth < 600 ? 20 : 25,
     value: product.ratings,
     isHalf: true,
+  };
+
+  const [quantity, setQuantity] = useState(1);
+
+  const increaseQuantity = () => {
+    if (product.Stock <= quantity) return;
+    const qty = quantity + 1;
+    setQuantity(qty);
+  };
+
+  const decreaseQuantity = () => {
+    if (1 >= quantity) return;
+    const qty = quantity - 1;
+    setQuantity(qty);
+  };
+
+  const addToCartHandler = () => {
+    dispatch(addItemsToCart(id, quantity));
+    alert("Item Added To Cart");
   };
 
   return (
@@ -71,11 +92,12 @@ const ProductDetails = () => {
                 <h1>{`Rs${product.price}`}</h1>
                 <div className="detailsBlock-3-1">
                   <div className="detailsBlock-3-1-1">
-                    <button>-</button>
-                    <input value="1" type="number" />
-                    <button>+</button>
+                    <button onClick={decreaseQuantity}>-</button>
+                    <input type="text" value={quantity} readOnly />
+
+                    <button onClick={increaseQuantity}>+</button>
                   </div>
-                  <button>Add to Cart</button>
+                  <button onClick={addToCartHandler}>Add to Cart</button>
                 </div>
                 <p>
                   Status:

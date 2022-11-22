@@ -6,7 +6,7 @@ import Loader from "../Layout/Loader";
 import ProductCard from "../Home/ProductCard";
 import { useParams } from "react-router-dom";
 import Pagination from "react-js-pagination";
-// import { MDCSlider } from "@material/slider";
+// import { Slider } from "@mui/material";
 
 const categories = [
   "Laptop",
@@ -42,6 +42,7 @@ const Products = () => {
   // };
 
   useEffect(() => {
+    console.log({ change: category });
     dispatch(getProduct(keyword, currentPage, price, category));
   }, [dispatch, keyword, currentPage, price, category]);
 
@@ -61,7 +62,7 @@ const Products = () => {
 
           {/* <div className="filterBox">
             <p>Price</p>
-            <MDCSlider
+            <Slider
               value={price}
               onChange={priceHandler}
               valueLaberDisplay="auto"
