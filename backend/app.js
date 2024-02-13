@@ -23,7 +23,7 @@ const user = require("./routes/userRoute");
 const order = require("./routes/orderRoute");
 
 app.get("/", (req, res) => {
-  res.json({ check: true });
+    res.json({ check: true });
 });
 
 app.use("/api/v1", product);
